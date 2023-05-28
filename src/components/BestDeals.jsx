@@ -30,7 +30,7 @@ const BestDeals = () => {
                                 <StarIcon sx={{fontSize: "10px"}}></StarIcon> 600 Points
                             </Typography>
                         </Stack>
-                        <Typography sx={{position: "absolute", top: "17px", left: "38%", color: "white", background: "red", fontSize: "12px", paddingLeft: "10px", paddingRight: "10px"}}>25% Off</Typography>
+                        <Typography id="percentOff">25% Off</Typography>
                     </Grid>
                 ))}
             </Grid>
