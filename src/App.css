@@ -60,7 +60,19 @@ button:hover {
 .dotGp{
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #312f2f;
+}
+.carousel__dot{
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #c3c4ca;
+}
+.carousel__dot--selected{
+  background-color: #312f2f;
 }
 #buttonBack {
   position: absolute;
@@ -304,6 +316,9 @@ button:hover {
   #percentOff{
     left: 42%;
   }
+  #h3::before{
+    left: 37%;
+  }
 }
 @media screen and (max-width: 769px) {
   .deviceSlideImg{
@@ -328,9 +343,6 @@ button:hover {
   }
   .mobImg{
     width: 100%;
-  }
-  .dotGp{
-    display: none;
   }
   .slideText{
     left: 25%;
@@ -409,7 +421,7 @@ button:hover {
     height: 65px;
   }
   .flexBox{
-    width: 92%;
+    width: 89%;
   }
 }
 @media screen and (max-width: 380px){
@@ -421,5 +433,8 @@ button:hover {
   }
   .newFlavorImg{
     height: 100px;
+  }
+  #carouselMob{
+    width: 340px;
   }
 }
