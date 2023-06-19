@@ -120,8 +120,10 @@ button:hover {
 }
 .gridItem{
   cursor: pointer;
+  transition: transform 0.5s;
 }
 .gridItem:hover{
+  
   transform: translateY(-10px);
 }
 #viewMore, #viewMoreDev{
