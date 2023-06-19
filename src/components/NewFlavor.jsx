@@ -1,24 +1,41 @@
-import { Box, Stack, Typography, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import {
   CarouselProvider,
   Slider,
   Slide,
   ButtonNext,
+  DotGroup,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import { useGetBannerList } from "../banner-list-query";
 
 const NewFlavor = () => {
+  const {data} = useGetBannerList("adsBanner", 2)
   return (
     <Box mx={3}>
       <CarouselProvider
         naturalSlideWidth={1}
-        naturalSlideHeight={0.4}
+        naturalSlideHeight={0.2}
         totalSlides={2}
-        visibleSlides={1.1}
+        visibleSlides={1.05}
+        isPlaying={true}
+        infinite={true}
         id="newflavor"
       >
         <Slider>
+          {
+            data?.map((banner, i) => (
+              banner.isWeb === 1 && (
+                <Slide key={i} index={i}>
+                    <img src={banner.url} width={"1110px"} style={{borderRadius: "10px"}}/>
+                </Slide>
+              )
+            ))
+          }
+        </Slider>
+        <DotGroup className="dotGp"></DotGroup>
+        {/**<Slider>
           <Slide index={0}>
             <Stack
               direction={"row"}
@@ -87,7 +104,7 @@ const NewFlavor = () => {
               </Stack>
             </Stack>
           </Slide>
-        </Slider>
+                </Slider>**/}
         <ButtonNext id="buttonNewF">
           <ArrowForwardIosOutlinedIcon sx={{ color: "white" }} />
         </ButtonNext>

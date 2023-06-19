@@ -1,38 +1,38 @@
-import {Stack, Typography, Grid, Button} from "@mui/material"
+import {Stack, Typography, Grid, Button, Box} from "@mui/material"
+//import { useQuery } from "@tanstack/react-query"
+//import axios from "axios"
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined"
+import { useGetNewReleased } from "../banner-list-query"
 
 const NewReleased = () => {
-    const images = ["./images/strawberry.png", "./images/citrus.png", "./images/blue.png", "./images/green.png"]
+    const { data } = useGetNewReleased();
   return (
         <Stack
             direction={"column"}
             justifyContent={"center"}
             alignItems={"center"}
             my={7}
-            mx={3}
+            mx={1.5}
         >
-            <Typography variant="h2" id="red" fontWeight={"bold"}> Released</Typography>
+            <Typography variant="h3" id="red" fontWeight={"bold"}> Released</Typography>
             <Typography variant="h6">Try Out Our Latest Flavour Here</Typography>
             <Grid container my={"30px"} px={"10px"}>
-                {images.map((img, i) => (
-                    <Grid item key={i} md={3} lg={3} sm={6} xs={12} px={"5px"} py={"5px"}>
-                        <Stack
-                            direction={"row"}
-                            justifyContent={"space-between"}
-                            alignItems={"flex-end"}
-                            id={`newReleased${i}`}
-                            sx={{borderRadius: "10px"}}
-                        >
-                            <Stack 
+                {data?.slice(0, 4).map((product, i) => (
+                    <Grid item key={i} md={3} lg={3} sm={6} xs={12} px={"5px"} py={"5px"} className="gridItem">
+                        <Box width={"276.83px"} height={"180px"} overflow={"hidden"} borderRadius={"10px"} position={"relative"}>
+                            <img src={product.url} width={"100%"}/>
+                            <Stack
                                 direction={"column"}
-                                p={"10px"}
+                                className="newTypo"
                             >
-                                <Typography sx={{color: "white"}}>Strawberry Yougurt with Refreshing flavour</Typography>
-                                <Typography sx={{color: "white"}}>Nic 3 Percent</Typography>
-                                <Typography sx={{color: "white"}} fontSize={"12px"}>30,000 MMK</Typography>
+                                <Typography>
+                                    {product.name}
+                                </Typography>
+                                <Typography>
+                                    {product.originalPrice} MMK
+                                </Typography>
                             </Stack>
-                            <img src={img} alt="" id="gridImg" style={{background: "none", borderRadius: "none", width: "140px"}}/>
-                        </Stack>
+                        </Box>
                     </Grid>    
                 ))}
             </Grid>

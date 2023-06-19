@@ -54,7 +54,6 @@ button:hover {
 }
 .desImg {
   width: 100%;
-  height: 100vh;
   position: relative;
 }
 .dotGp{
@@ -115,14 +114,14 @@ button:hover {
 /** Best Deals **/
 #gridImg {
   width: 180px;
-  height: 150px;
-  background-color: #d4d4d4;
+  /*background-color: #d4d4d4;*/
   border-radius: 10px;
-  padding-top: 30px;
   margin-bottom: 10px;
 }
-
-#viewMore{
+.gridItem{
+  cursor: pointer;
+}
+#viewMore, #viewMoreDev{
   background-color: #d4d4d4; 
   color: black; 
   border-radius: 20px; 
@@ -130,9 +129,13 @@ button:hover {
   text-transform: capitalize;
 }
 
-#percentOff{
+#viewMoreDev{
+  width: fit-content;
+}
+
+#percentOff, #percentOffDev{
   position: absolute; 
-  top: 17px; 
+  top: 16px; 
   left: 38%; 
   color: white; 
   background: red; 
@@ -141,7 +144,21 @@ button:hover {
   padding-right: 10px;
 }
 
+#percentOffDev{
+  top: 8px;
+  left: 32%
+}
+
 /** New Released **/
+.newTypo{
+  position: absolute;
+  bottom: 0;
+  margin: 10px 20px;
+  background-color: #d4d4d4;
+  border-radius: 5px;
+  opacity: 90%;
+  padding: 5px;
+}
 #red::before {
   color: red;
   content: "New";
@@ -194,7 +211,10 @@ button:hover {
   border-radius: 10px;
   margin-bottom: 10px;
 }
-
+.devicesBack{
+  background-color: #312f2f;
+  border-radius: 10px;
+}
 #deviceBackground {
   background: url(/images/ice.png) no-repeat #312f2f;
   background-size: 300px;
